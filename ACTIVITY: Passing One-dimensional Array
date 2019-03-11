@@ -1,0 +1,66 @@
+#include <iostream>
+using namespace std;
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+class wasteful{  			
+	public: 
+		void display(int m[5]);
+		long digit[100],n, x, t, j, factor[100], rem[100], num[10],num1[10];  	
+};
+
+int main() 
+{
+	int num[10]={11,12,13,14,15,16,17,18,19,20};    
+	wasteful numbers;					
+	numbers.display (num);					
+	return 0;
+}
+
+	void wasteful::display(int num[10]) 		
+{
+	cout<<"WASTEFUL: "<<endl;	
+	
+	for (int i=0; i<10; i++)			
+	{
+		
+	    for (i=0;i<10; i++)
+			{
+			digit[i]=0;
+			n=num[i];
+			x=n;
+			for (;n!=0;)
+				{
+				n=n/10;
+				digit[i]++;
+				}
+			t=0;
+			j=2;
+			factor[i]=0;
+			for (;x!=0;)
+				{
+				if (x%j==0)
+					{
+					x=x/j;
+					rem[t]=j;
+					t++;
+					factor[i]++;
+					if(x==1)
+						{
+						break;
+						}
+					}
+			else
+				{
+				j++;
+				}
+			}
+		}
+		for (i=0; i<10; i++)
+			{
+			if (factor[i]>digit[i])
+				{
+				cout<<"Number: "<<num[i]<<endl;
+				}
+			}
+		}
+}
